@@ -1,12 +1,13 @@
 grammar JsonExpr;
 
-json: obj+;
+jsonObj: obj+;
 
 //parser rules
-obj : 	'{' '"' KEY '"' ':' obj '}' NEWLINE
-	|	'['	obj (COMMA obj)* ']' NEWLINE
-	|	'{' ('"' KEY '"' ':' '"' VAL? '"')? '}' NEWLINE
-	|	NEWLINE
+obj : 	obj	NEWLINE											#printExpr
+	|	'{' '"' KEY '"' ':' obj '}' NEWLINE					#json
+	|	'['	obj (COMMA obj)* ']' NEWLINE					#list
+	|	'{' ('"' KEY '"' ':' '"' VAL? '"')? '}' NEWLINE		#json
+	|	NEWLINE												#blank
 	;
 
 // lexer rules
