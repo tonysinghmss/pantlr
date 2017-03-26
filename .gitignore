@@ -5,3 +5,5 @@
 target/**
 #Ignore .settings folder
 .settings/**
+.classpath
+.project
