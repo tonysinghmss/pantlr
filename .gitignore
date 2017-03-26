@@ -1,0 +1,7 @@
+
+# Compiled source #
+*.class
+#Ignore everyfile generated inside target folder
+target/**
+#Ignore .settings folder
+.settings/**
